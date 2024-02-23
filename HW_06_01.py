@@ -28,9 +28,9 @@ class Record: # Клас для зберігання інформації про
         self.phones.append(Phone(phone))
 
     def remove_phone(self, phone):
-        for phone in self.phones:
-            if phone in self.phones:
-              self.phones.remove (phone)
+        for ph in self.phones:
+            if ph.value == phone:
+                self.phones.remove(ph)
 
     def edit_phone(self, old_phone, new_phone):
         for phone in self.phones:
@@ -39,11 +39,10 @@ class Record: # Клас для зберігання інформації про
                 break
 
     def find_phone(self, phone):
-      for phone in self.phones:
-          if phone in self.phones:
-            return phone
-      return None
-
+      for ph in self.phones:
+            if ph.value == phone:
+                return ph
+            
     def __str__(self):
         return f"Contact name: {self.name.value}, phones: {'; '.join(p.value for p in self.phones)}"
 
